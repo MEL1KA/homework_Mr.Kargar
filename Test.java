@@ -28,6 +28,7 @@ public class Test {
             h = h / 2;
         }
 
-        System.out.println("\nAs h approaches zero, the secant line becomes the tangent line.");
+        System.out.println("\nAs h equals zero, the secant line becomes the tangent line.");
     }
 }
+
