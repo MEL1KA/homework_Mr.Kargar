@@ -1,0 +1,33 @@
+public class Test {
+
+    public static double f(double x) {
+        return x * x;
+    }
+
+    public static void main(String[] args) {
+
+        double x = 2;
+        double[] tValues = {-6, -3, 0, 3, 6};
+
+        System.out.println("Concept: Secant lines approaching tangent line\n");
+        System.out.println("t\t x+t\t f(x+t)\t slope");
+        System.out.println("---------------------------------------");
+
+        for (double t : tValues) {
+            double tAdjusted = (t == 0) ? 0.0001 : t;
+            double slope = (f(x + tAdjusted) - f(x)) / tAdjusted;
+
+            System.out.printf("%.2f\t %.2f\t %.2f\t %.2f\n", t, x + t, f(x + t), slope);
+        }
+
+        System.out.println("\nSimulating secant line approaching tangent line:");
+        double h = 1.0;
+        for (int i = 0; i < 6; i++) {
+            double slope = (f(x + h) - f(x)) / h;
+            System.out.printf("h = %.5f, slope = %.5f\n", h, slope);
+            h = h / 2;
+        }
+
+        System.out.println("\nAs h approaches zero, the secant line becomes the tangent line.");
+    }
+}
